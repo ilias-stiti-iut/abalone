@@ -1,24 +1,36 @@
 package abalone;
 
-import javax.swing.JFrame;
-
 /**
- * 
+ * this class represents an Abalone game.
+ * (url)
  * @author stitii
- * The class which enable to start the game
+ *
  */
 
 public class AbaloneGame{
+
+	/**
+	 * An Abalone game is not end by default
+	 */
+	private static boolean D_ISEND = false;
 	
-	private static boolean DEFAULT_ISEND = false;
+	/**
+	 * Boolean which says if the game is end
+	 */
+	private boolean isEnd;
 	
-	public boolean isEnd;
-	
+	/**
+	 * Creates a new Abalone game, ready to be played. An Abalone game is not end by default 
+	 */
 	public AbaloneGame()
 	{
-		this.isEnd = DEFAULT_ISEND;
 	}
 	
-	
+	/**
+	 * Plays the game (...)
+	 */
+	public void play()
+	{
+	}
 	
 }
