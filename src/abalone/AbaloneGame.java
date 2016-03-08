@@ -2,7 +2,7 @@ package abalone;
 
 /**
  * this class represents an Abalone game.
- * (url)
+ * https://fr.wikipedia.org/wiki/Abalone_%28jeu%29
  * @author stitii
  *
  */
@@ -10,27 +10,26 @@ package abalone;
 public class AbaloneGame{
 
 	/**
-	 * An Abalone game is not end by default
+	 * Boolean which says if the game is finished
 	 */
-	private static boolean D_ISEND = false;
+	private boolean isGameFinished;
 	
 	/**
-	 * Boolean which says if the game is end
-	 */
-	private boolean isEnd;
-	
-	/**
-	 * Creates a new Abalone game, ready to be played. An Abalone game is not end by default 
+	 * Creates a new Abalone game, ready to be played.
+	 * The first player who begin is the one with black balls
+	 * All balls are positionned on a table which has an hexagonal shape 
+	 * An Abalone game is not end by default 
 	 */
 	public AbaloneGame()
 	{
+		this.isGameFinished = false;
 	}
-	
+
 	/**
-	 * Plays the game (...)
+	 * Plays the game (algorithm?)
 	 */
 	public void play()
 	{
+		
 	}
-	
 }

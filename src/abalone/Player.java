@@ -8,6 +8,11 @@ public class Player
 	private static int DEFAULT_BALLS = 14;
 	
 	/**
+	 * default player's name
+	 */
+	private static String DEFAULT_NAME = "None";
+	
+	/**
 	 * A player has all his balls by default
 	 */
 	private static boolean DEFAULT_NOMOREBALLS = false;
@@ -28,14 +33,21 @@ public class Player
 	private String colorBalls;
 	
 	/**
+	 * Player's name
+	 */
+	private String name;
+	
+	/**
 	 * Create a player 
 	 * @param color of the player
+	 * @param name of the player
 	 */
-	public Player(String color)
+	public Player(String color, String name)
 	{
 		this.balls = DEFAULT_BALLS;
 		this.nomoreBalls = DEFAULT_NOMOREBALLS;
 		this.colorBalls = color;
+		this.name = name;
 	}
 	
 	/**
@@ -44,6 +56,11 @@ public class Player
 	public boolean getNomoreBalls()
 	{
 		return this.nomoreBalls;
+	}
+	
+	public String getName()
+	{
+		return this.name;
 	}
 
 	
