@@ -1,5 +1,6 @@
 package abalone;
 
+// TODO to avoid having this class removed, consider thinking about AbaloneGame.play() main algorithm
 public class Player
 {
 	/**

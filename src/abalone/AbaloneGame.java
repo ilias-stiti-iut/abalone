@@ -9,6 +9,7 @@ package abalone;
 
 public class AbaloneGame{
 
+	// TODO clean comment (ask for advice)
 	/**
 	 * Boolean which says if the game is finished
 	 */
@@ -17,7 +18,7 @@ public class AbaloneGame{
 	/**
 	 * Creates a new Abalone game, ready to be played.
 	 * The first player who begin is the one with black balls
-	 * All balls are positionned on a table which has an hexagonal shape 
+	 * All balls are positioned on a table which has an hexagonal shape 
 	 * An Abalone game is not end by default 
 	 */
 	public AbaloneGame()

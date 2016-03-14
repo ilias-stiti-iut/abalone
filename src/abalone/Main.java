@@ -1,5 +1,7 @@
 package abalone;
 
+// TODO update README.md (what/sho)
+
 // TODO write comment
 public class Main
 {
