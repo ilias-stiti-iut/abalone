@@ -34,21 +34,14 @@ public class Player
 	private String colorBalls;
 	
 	/**
-	 * Player's name
-	 */
-	private String name;
-	
-	/**
 	 * Create a player 
 	 * @param color of the player
-	 * @param name of the player
 	 */
-	public Player(String color, String name)
+	public Player(String color)
 	{
 		this.balls = DEFAULT_BALLS;
 		this.nomoreBalls = DEFAULT_NOMOREBALLS;
 		this.colorBalls = color;
-		this.name = name;
 	}
 	
 	/**
@@ -58,11 +51,14 @@ public class Player
 	{
 		return this.nomoreBalls;
 	}
-	
-	public String getName()
-	{
-		return this.name;
-	}
 
-	
+	// TODO turn()
+	/**
+	 * Player's turn
+	 * Not finished yet
+	 */
+	public void turn()
+	{
+		
+	}
 }

@@ -8,14 +8,14 @@ package abalone;
 public class Ball
 {
 	/**
-	 * Ball's x position
+	 * Ball's ligne position
 	 */
-	private int x;
+	private int ligne;
 	
 	/**
-	 * Ball's y position
+	 * Ball's column position
 	 */
-	private int y;
+	private int column;
 	
 	/**
 	 * Ball's color
@@ -33,10 +33,10 @@ public class Ball
 	 * @param y
 	 * @param color
 	 */
-	public Ball(int x,int y, String color)
+	public Ball(int ligne,int column, String color)
 	{
-		this.x=x;
-		this.y=y;
+		this.ligne=ligne;
+		this.column=column;
 		this.color=color;
 		this.isEliminated=false;
 	}
