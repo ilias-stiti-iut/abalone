@@ -31,7 +31,6 @@ package abalone;
 
 public class AbaloneGame{
 
-	// TODO (done) clean comment (ask for advice)
 	/** 
 	 *  @formatter:on
 	 * Game status (running/finished)
@@ -51,9 +50,10 @@ public class AbaloneGame{
 	private Player player2;
 
 	/**
-	 * Game board [ligne] [column]
+	 * Game board [row] [column]
 	 */
 
+	// TODO move the data structure in a dedicated type called Board
 	private Ball[][] board;
 
 	/**
@@ -92,6 +92,7 @@ public class AbaloneGame{
 		}
 	}
 
+	// TODO detail algorithm (ask for advice)
 	/**
 	 * Plays the game (algorithm?)
 	 * While the game isn't finished, play the game
