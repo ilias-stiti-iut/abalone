@@ -1,5 +1,9 @@
 package abalone;
 
+import abalone.Ball;
+import abalone.Player;
+
+
 /**
  * @formatter:off 
  * this class represents an Abalone game.
@@ -8,9 +12,9 @@ package abalone;
  *  
  *                 		                      		
  *               W W W W W       <- row 0
- *     		    W W W W W W 	 <- row 1
- *    		   X X W W W X X	 <- row 2
- *   		  X X X X X X X X    <- row 3
+ *              W W W W W W 	 <- row 1
+ *             X X W W W X X	 <- row 2
+ *            X X X X X X X X    <- row 3
  *           X X X X X X X X X   <- row 4
  *  column 0/ X X X X X X X X    <- row 5
  *   column 1/ X X B B B X X     <- row 6
@@ -50,7 +54,7 @@ public class AbaloneGame{
 	private Player player2;
 
 	/**
-	 * Game board [row] [column]
+	 * Game board [ligne] [column]
 	 */
 
 	// TODO move the data structure in a dedicated type called Board
@@ -60,16 +64,22 @@ public class AbaloneGame{
 	 * Model of the position of balls
 	 * @formatter:off 
 	 */
-	private String[][] boardtemp = { { "W", "W", "W", "W", "W" }, 
-								   { "W", "W", "W", "W", "W", "W" },
-								 { "X", "X", "W", "W", "W", "X", "X" }, 
-							   { "X", "X", "X", "X", "X", "X", "X", "X" },
-						   { "X", "X", "X", "X", "X", "X", "X", "X", "X", "X" }, 
-						       { "X", "X", "X", "X", "X", "X", "X", "X" },
-						       	 { "X", "X", "B", "B", "B", "X", "X" }, 
-						       	   { "B", "B", "B", "B", "B", "B" }, 
-						       	 	 { "B", "B", "B", "B", "B" } };
-
+	private int[][] boardtemp = {{ 0, 0, 0, 0, 0 }, 
+								  {0, 0, 0, 0, 0, 0},
+								 {-1,-1,0,0,0,-1,-1}, 
+							 {-1,-1,-1,-1,-1,-1,-1,-1},
+						   {-1,-1,-1,-1,-1,-1,-1,-1,-1}, 
+						      {-1,-1,-1,-1,-1,-1,-1,-1},
+						        {-1,-1,1,1,1,-1,-1}, 
+						       	   {1,1,1,1,1,1}, 
+						       	 	 {1,1,1,1,1}};
+	
+	/**
+	 * Used for displayBoard()
+	 */
+	private String[] spaceBoard = {"               ","              ","             ","            ","           ",
+							       "            ","             ","              ","               "};
+	
 	/**
 	 * @formatter:on
 	 * Creates a new Abalone game, ready to be played. The first player who
@@ -81,13 +91,12 @@ public class AbaloneGame{
 		this.isGameFinished = false;
 		this.player1 = new Player("B");
 		this.player2 = new Player("W");
-
-		for (int i = 0; i < boardtemp.length; i++)
+		this.board = new Ball[9][9];
+		for (int i = 0; i < this.boardtemp.length; i++)
 		{
-			for (int j = 0; j < boardtemp[i].length; i++)
+			for (int j = 0; j < this.boardtemp[i].length; j++)
 			{
-				if (boardtemp[i][j] != "X")
-					this.board[i][j] = new Ball(i, j, boardtemp[i][j]);
+				this.board[i][j] = new Ball(i, j, this.boardtemp[i][j]);
 			}
 		}
 	}
@@ -96,16 +105,46 @@ public class AbaloneGame{
 	/**
 	 * Plays the game (algorithm?)
 	 * While the game isn't finished, play the game
-	 * Each player play his turn (algorithm not finished
+	 * Each player play his turn (algorithm not finished)
 	 */
 	public void play()
 	{
-		while (this.isGameFinished)
+		System.out.println(this.toString());
+		/*while (this.isGameFinished)
 		{
-			player1.turn();
-			this.isGameFinished=player2.getNomoreBalls();
-			player2.turn();
-			this.isGameFinished=player1.getNomoreBalls();
+			this.player1.turn();
+			this.isGameFinished=this.player2.getNomoreBalls();
+			this.player2.turn();
+			this.isGameFinished=this.player1.getNomoreBalls();
+		}*/
+	}
+	
+	/**
+	 *
+	 * @param x position (ligne) of the ball
+	 * @param y position (column) of the ball
+	 * @return Stats of the ball 
+	 */
+	public String getBall(int x,int y)
+	{
+		return this.board[x][y].toString();
+	}
+	
+	/**
+	 * display the AbaloneGame's board
+	 */
+	public String toString()
+	{
+		String display = "";
+		for (int i = 0; i < this.boardtemp.length; i++)
+		{
+			display+=this.spaceBoard[i];
+			for (int j = 0; j < this.boardtemp[i].length; j++)
+			{
+				display+=this.board[i][j].getColor() + " ";
+			}
+			display+="\n";
 		}
+		return display;
 	}
 }

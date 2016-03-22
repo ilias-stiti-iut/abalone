@@ -1,14 +1,22 @@
 package abalone;
 
-// TODO update README.md (what/who)
+import abalone.AbaloneGame;
 
-// TODO write comment
+// TODO update README.md (what/sho)
+/**
+ * @author stitii
+ * Main class
+ */
 public class Main
 {
-	// TODO write comment
+	/**
+	 * Starting the programme 
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
-		new AbaloneGame().play();	
+		AbaloneGame abab = new AbaloneGame();
+		abab.play();
 	}
 
 }

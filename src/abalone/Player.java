@@ -1,17 +1,19 @@
 package abalone;
 
+
 // TODO to avoid having this class removed, consider thinking about AbaloneGame.play() main algorithm
+
+/**
+ * @author stitii
+ * Class Player (defined by its number of balls, color of his balls and his statue on the game
+ */
+
 public class Player
 {
 	/**
 	 * default number of player's balls
 	 */
 	private static int DEFAULT_BALLS = 14;
-	
-	/**
-	 * default player's name
-	 */
-	private static String DEFAULT_NAME = "None";
 	
 	/**
 	 * A player has all his balls by default
@@ -50,6 +52,23 @@ public class Player
 	public boolean getNomoreBalls()
 	{
 		return this.nomoreBalls;
+	}
+	
+	
+	/**
+	 * @return player's number of balls
+	 */
+	public int getBalls()
+	{
+		return this.balls;
+	}
+	
+	/**
+	 * @return player's color of balls
+	 */
+	public String getColorBalls()
+	{
+		return this.colorBalls;
 	}
 
 	// TODO turn()
