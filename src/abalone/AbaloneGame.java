@@ -65,15 +65,15 @@ public class AbaloneGame{
 	 * Model of the position of balls
 	 * @formatter:off 
 	 */
-	private int[][] boardtemp = {{ 0, 0, 0, 0, 0 }, 
-								  {0, 0, 0, 0, 0, 0},
-								 {-1,-1,0,0,0,-1,-1}, 
+	private int[][] boardtemp =   {{0,0,0,0,0}, 
+								  {0,0,0,0,0,0},
+							    {-1,-1,0,0,0,-1,-1}, 
 							 {-1,-1,-1,-1,-1,-1,-1,-1},
 						   {-1,-1,-1,-1,-1,-1,-1,-1,-1}, 
 						      {-1,-1,-1,-1,-1,-1,-1,-1},
 						        {-1,-1,1,1,1,-1,-1}, 
 						       	   {1,1,1,1,1,1}, 
-						       	 	 {1,1,1,1,1}};
+						       	    {1,1,1,1,1}};
 	
 	/**
 	 * Used for displayBoard()
@@ -111,6 +111,8 @@ public class AbaloneGame{
 	public void play()
 	{
 		System.out.println(this.toString());
+		this.board[0][1].setNewPos(this.board,this.board[1][0].position,2,0);
+		System.out.println(this.toString());
 		/*while (this.isGameFinished)
 		{
 			this.player1.turn();
@@ -120,22 +122,18 @@ public class AbaloneGame{
 		}*/
 	}
 	
-	// TODO finish writing comment (general description is missing)
-	// TODO parameter should be a position
 	/**
-	 *
-	 * @param x position (ligne) of the ball
-	 * @param y position (column) of the ball
-	 * @return Stats of the ball 
+	 * Get ball's feature 
+	 * @param pos The position of the ball we need to view
+	 * @return Ball's features
 	 */
-	public String getBall(int x,int y)
+	public String getBall(Position pos)
 	{
-		return this.board[x][y].toString();
+		return this.board[pos.getLine()][pos.getColumn()].toString();
 	}
 	
-	// TODO fix comment (this displays nothing)
 	/**
-	 * display the AbaloneGame's board
+	 * Display board's current statue
 	 */
 	public String toString()
 	{

@@ -1,5 +1,8 @@
 package abalone;
 
+import abalone.Ball;
+import abalone.BallException;
+
 /**
  * Position
  * @author stitii
@@ -17,11 +20,10 @@ public class Position
 	 */
 	private int column;
 	
-	// TODO finish writing comment (parameters should be documented-
 	/**
 	 * create ball position
-	 * @param line
-	 * @param column
+	 * @param line Define ball's line position
+	 * @param column Define ball's column position
 	 */
 	public Position(int line, int column)
 	{
@@ -29,18 +31,50 @@ public class Position
 		this.column=column;
 	}
 
-	// TODO finish writing comment (parameters should be documented-
 	/**
 	 * Set new position
 	 * @param board 
-	 * @param line 
-	 * @param column 
+	 * @param line Line position we need to move the ball on
+	 * @param column Column position we need to move the ball on 
 	 */
-	public void setNewPos(Ball[][] board,int line,int column) throws BallException
+	public void setPos(Ball[][] board,int line,int column) throws BallException
 	{
-		if (board[line][column].getColor()!="X") throw new BallException();
+		if (board[line][column].getColor()!="X"||outOfRange(board,line,column)) throw new BallException();
 		this.line=line;
 		this.column=column;
 	}
 	
+	/**
+	 * setter line
+	 * @return this.line
+	 */
+	public int getLine()
+	{
+		return this.line;
+	}
+	
+	/**
+	 * getter column 
+	 * @return this.column
+	 */
+	public int getColumn()
+	{
+		return this.column;
+	}
+	
+	/**
+	 * boolean which check if the position gets out of the table 
+	 * @param board 
+	 * @param line
+	 * @param column
+	 * @return false if the position doesn't get out of the table
+	 */
+	public boolean outOfRange(Ball[][] board,int line,int column)
+	{
+		return line > board.length || line < 0 || column > board[line].length|| column < 0 ;
+	}
+	
+	
 }
+	
+
