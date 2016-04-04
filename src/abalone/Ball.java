@@ -22,7 +22,8 @@ public class Ball
 	 * Ball's sate
 	 */
 	private boolean isEliminated;
-	
+
+	// TODO finish writing comment (parameter description is missing)
 	/**
 	 * Create a Ball
 	 * @param line 
@@ -36,6 +37,9 @@ public class Ball
 		this.isEliminated=false;
 	}
 	
+	// TODO getColor should return a color, not a string
+	// advice: make an enumeration for colors which overrides toString
+	// TODO finish writing comment (general description is missing)
 	/**
 	 * @return ball's color
 	 */
@@ -51,6 +55,7 @@ public class Ball
 	//TODO setPos Methode here
 
 	
+	// TODO finish writing comment (general description is missing)
 	/**
 	 * @return Stats of the ball
 	 */

@@ -60,6 +60,7 @@ public class AbaloneGame{
 	// TODO move the data structure in a dedicated type called Board
 	private Ball[][] board;
 
+	// TODO use constants or an enumeration instead of hard-coded values
 	/**
 	 * Model of the position of balls
 	 * @formatter:off 
@@ -119,6 +120,8 @@ public class AbaloneGame{
 		}*/
 	}
 	
+	// TODO finish writing comment (general description is missing)
+	// TODO parameter should be a position
 	/**
 	 *
 	 * @param x position (ligne) of the ball
@@ -130,6 +133,7 @@ public class AbaloneGame{
 		return this.board[x][y].toString();
 	}
 	
+	// TODO fix comment (this displays nothing)
 	/**
 	 * display the AbaloneGame's board
 	 */

@@ -17,6 +17,7 @@ public class Position
 	 */
 	private int column;
 	
+	// TODO finish writing comment (parameters should be documented-
 	/**
 	 * create ball position
 	 * @param line
@@ -28,6 +29,7 @@ public class Position
 		this.column=column;
 	}
 
+	// TODO finish writing comment (parameters should be documented-
 	/**
 	 * Set new position
 	 * @param board 
