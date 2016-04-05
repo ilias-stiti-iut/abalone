@@ -1,8 +1,6 @@
 package abalone;
 
-import abalone.Ball;
-import abalone.BallException;
-import abalone.Position;
+import abalone.*;
 
 /**
  * 
@@ -12,6 +10,22 @@ import abalone.Position;
  */
 public class Ball
 	{
+	
+	/**
+	 * white color is defined by 0
+	 */
+	public static final int WHITE_COLOR = 0;
+	
+	/**
+	 * black color is defined by 1
+	 */
+	public static final int BLACK_COLOR = 1;
+	
+	/**
+	 * A missing ball is defined by -1 
+	 */
+	public static final int NULL_COLOR = -1;
+	
 	/**
 	 * Ball's position	
 	 */
@@ -43,14 +57,23 @@ public class Ball
 	// TODO getColor should return a color, not a string
 	// advice: make an enumeration for colors which overrides toString
 	/**
-	 * Get ball's color 
+	 * Get real ball's color 
 	 * @return ball's color
 	 */
-	public String getColor()
+	public String getRealColor()
 	{
 		if (this.color==0) return "W";
 		else if (this.color==1) return "B";
 		return "X";
+	}
+	
+	/**
+	 * Get ball's color 
+	 * @return ball's color
+	 */
+	public int getColor()
+	{
+		return this.color;
 	}
 	
 	/**

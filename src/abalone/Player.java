@@ -33,13 +33,13 @@ public class Player
 	/**
 	 * the color of balls of the player (black or white)
 	 */
-	private String colorBalls;
+	private int colorBalls;
 	
 	/**
 	 * Create a player 
 	 * @param color of the player
 	 */
-	public Player(String color)
+	public Player(int color)
 	{
 		this.balls = DEFAULT_BALLS;
 		this.nomoreBalls = DEFAULT_NOMOREBALLS;
@@ -66,13 +66,11 @@ public class Player
 	/**
 	 * @return player's color of balls
 	 */
-	public String getColorBalls()
+	public int getColorBalls()
 	{
 		return this.colorBalls;
 	}
 
-	// TODO turn();
-	
 	/**
 	 * Player's turn
 	 * Not finished yet

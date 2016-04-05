@@ -1,7 +1,6 @@
 package abalone;
 
-import abalone.Ball;
-import abalone.BallException;
+import abalone.*;
 
 /**
  * Position
@@ -39,7 +38,7 @@ public class Position
 	 */
 	public void setPos(Ball[][] board,int line,int column) throws BallException
 	{
-		if (board[line][column].getColor()!="X"||outOfRange(board,line,column)) throw new BallException();
+		if (board[line][column].getColor()!=Ball.NULL_COLOR||outOfRange(board,line,column)) throw new BallException();
 		this.line=line;
 		this.column=column;
 	}

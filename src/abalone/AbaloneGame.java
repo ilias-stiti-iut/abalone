@@ -1,7 +1,6 @@
 package abalone;
 
-import abalone.Ball;
-import abalone.Player;
+import abalone.*;
 
 
 /**
@@ -52,34 +51,11 @@ public class AbaloneGame{
 	 */
 
 	private Player player2;
-
-	/**
-	 * Game board [ligne] [column]
-	 */
-
-	// TODO move the data structure in a dedicated type called Board
-	private Ball[][] board;
-
-	// TODO use constants or an enumeration instead of hard-coded values
-	/**
-	 * Model of the position of balls
-	 * @formatter:off 
-	 */
-	private int[][] boardtemp =   {{0,0,0,0,0}, 
-								  {0,0,0,0,0,0},
-							    {-1,-1,0,0,0,-1,-1}, 
-							 {-1,-1,-1,-1,-1,-1,-1,-1},
-						   {-1,-1,-1,-1,-1,-1,-1,-1,-1}, 
-						      {-1,-1,-1,-1,-1,-1,-1,-1},
-						        {-1,-1,1,1,1,-1,-1}, 
-						       	   {1,1,1,1,1,1}, 
-						       	    {1,1,1,1,1}};
 	
 	/**
-	 * Used for displayBoard()
+	 * Game's board
 	 */
-	private String[] spaceBoard = {"               ","              ","             ","            ","           ",
-							       "            ","             ","              ","               "};
+	private Board board;
 	
 	/**
 	 * @formatter:on
@@ -90,36 +66,30 @@ public class AbaloneGame{
 	public AbaloneGame()
 	{
 		this.isGameFinished = false;
-		this.player1 = new Player("B");
-		this.player2 = new Player("W");
-		this.board = new Ball[9][9];
-		for (int i = 0; i < this.boardtemp.length; i++)
-		{
-			for (int j = 0; j < this.boardtemp[i].length; j++)
-			{
-				this.board[i][j] = new Ball(i, j, this.boardtemp[i][j]);
-			}
-		}
+		this.player1 = new Player(Ball.BLACK_COLOR);
+		this.player2 = new Player(Ball.WHITE_COLOR);
+		this.board = new Board();	
+		
 	}
 
 	// TODO detail algorithm (ask for advice)
 	/**
 	 * Plays the game (algorithm?)
 	 * While the game isn't finished, play the game
-	 * Each player play his turn (algorithm not finished)
+	 * Each player plays his turn 
+	 * During his turn, he has to chose a move 
+	 * After the move the algorithm will check if the other player can't play anymore
 	 */
 	public void play()
 	{
-		System.out.println(this.toString());
-		this.board[0][1].setNewPos(this.board,this.board[1][0].position,2,0);
-		System.out.println(this.toString());
-		/*while (this.isGameFinished)
+		System.out.println(this.board.toString());
+		while (this.isGameFinished)
 		{
 			this.player1.turn();
 			this.isGameFinished=this.player2.getNomoreBalls();
 			this.player2.turn();
 			this.isGameFinished=this.player1.getNomoreBalls();
-		}*/
+		}
 	}
 	
 	/**
@@ -127,26 +97,8 @@ public class AbaloneGame{
 	 * @param pos The position of the ball we need to view
 	 * @return Ball's features
 	 */
-	public String getBall(Position pos)
+	public Ball getBall(Position pos)
 	{
-		return this.board[pos.getLine()][pos.getColumn()].toString();
-	}
-	
-	/**
-	 * Display board's current statue
-	 */
-	public String toString()
-	{
-		String display = "";
-		for (int i = 0; i < this.boardtemp.length; i++)
-		{
-			display+=this.spaceBoard[i];
-			for (int j = 0; j < this.boardtemp[i].length; j++)
-			{
-				display+=this.board[i][j].getColor() + " ";
-			}
-			display+="\n";
-		}
-		return display;
+		return this.board.getBall(pos);
 	}
 }

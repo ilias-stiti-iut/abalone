@@ -1,6 +1,6 @@
 package abalone;
 
-import abalone.AbaloneGame;
+import abalone.*;
 
 // TODO update README.md (what/sho)
 /**
