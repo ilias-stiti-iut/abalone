@@ -20,7 +20,7 @@ public class Board
 	/**
 	 * Game board [line] [column]
 	 */
-	private Ball[][] board;
+	private int[][] board;
 	
 	/**
 	 * Model of the position of balls
@@ -48,25 +48,28 @@ public class Board
 	 */
 	public Board()
 	{
-		this.board = new Ball[NB_LINE][NB_COLUMN];
+		this.board[NB_LINE][NB_COLUMN] = 0;
 			
 		for (int i = 0; i < this.boardtemp.length; i++)
 		{
 			for (int j = 0; j < this.boardtemp[i].length; j++)
 			{
-				this.board[i][j] = new Ball(i, j, this.boardtemp[i][j]);
+				this.board[i][j] = this.boardtemp[i][j];
 			}
 		}
 	}
 	
 	/**
-	 * Get ball's feature 
-	 * @param pos Ball's position
-	 * @return The ball in the position asked
+	 * get the real color of the ball on (i,j) position
+	 * @param i line position
+	 * @param j column position
+	 * @return the real color of the ball on (i,j) position
 	 */
-	public Ball getBall(Position pos)
+	private String getRealColor(int i, int j)
 	{
-		return this.board[pos.getLine()][pos.getColumn()];
+		if (this.board[i][j]==-1) return "X";
+		else if (this.board[i][j]==0) return "W";
+		else return "B";
 	}
 	
 	/**
@@ -81,7 +84,7 @@ public class Board
 			display+=this.spaceBoard[i];
 			for (int j = 0; j < this.boardtemp[i].length; j++)
 			{
-				display+=this.board[i][j].getRealColor() + " ";
+				display+=this.getRealColor(i,j) + " ";
 			}
 			display+="\n";
 		}

@@ -66,8 +66,8 @@ public class AbaloneGame{
 	public AbaloneGame()
 	{
 		this.isGameFinished = false;
-		this.player1 = new Player(Ball.BLACK_COLOR);
-		this.player2 = new Player(Ball.WHITE_COLOR);
+		this.player1 = new Player(Player.BLACK_COLOR);
+		this.player2 = new Player(Player.WHITE_COLOR);
 		this.board = new Board();	
 		
 	}
@@ -92,13 +92,4 @@ public class AbaloneGame{
 		}
 	}
 	
-	/**
-	 * Get ball's feature 
-	 * @param pos The position of the ball we need to view
-	 * @return Ball's features
-	 */
-	public Ball getBall(Position pos)
-	{
-		return this.board.getBall(pos);
-	}
 }

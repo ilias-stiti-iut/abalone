@@ -11,6 +11,21 @@ package abalone;
 public class Player
 {
 	/**
+	 * 
+	 */
+	public static int BLACK_COLOR = 1;
+	
+	/**
+	 * 
+	 */
+	public static int WHITE_COLOR = 0;
+	
+	/**
+	 * 
+	 */
+	public static int NULL_COLOR = -1;
+	
+	/**
 	 * default number of player's balls
 	 */
 	private static int DEFAULT_BALLS = 14;
