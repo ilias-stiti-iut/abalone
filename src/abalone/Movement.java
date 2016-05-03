@@ -1,5 +1,7 @@
 package abalone;
 
+import java.util.ArrayList;
+
 /**
  * Player's movement possible
  * this class will enable to make movements (Ball.setNewPos and Position.setPos may be useless now)
@@ -12,34 +14,36 @@ package abalone;
 public class Movement
 {
 	/**
-	 * table which stores the position of balls to move
+	 * table which stores the position of balls which the player want to move
 	 */
-	private final Position[] balls;
+	private final Position[] myBalls;
 	
 	/**
 	 * the way of the balls
 	 */
 	private final Way way;
 	
+	
 	/**
 	 * Create a movement (but the movement in not done yet)
-	 * @param way the way of the movement (exemple way: +1;+1)
-	 * @param balls table which stores the position of balls to move
 	 */
-	public Movement(Position[] balls,Way way)
+	public Movement()
 	{
-		this.balls=balls;
-		this.way=way;
+		this.myBalls=null;
+		this.way=null;
 	}
 	
 	/**
-	 * 
-	 * @param board the board where we make the movement
-	 * @throws ImpossibleMovementException 
-	 * throw exception if the number of ball > 3 or if the player isn't in position to Sumitomo 
+	 * Direction getter
+	 * @return object's direction of its way
 	 */
-	public void doMovement(Board board) throws ImpossibleMovementException
+	public Way getWay()
 	{
-		if (this.balls.length>3) throw new ImpossibleMovementException();
+		return this.way;
+	}
+	
+	public Position[] getMyBalls()
+	{
+		return this.myBalls;
 	}
 }

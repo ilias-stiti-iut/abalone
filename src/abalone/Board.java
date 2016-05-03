@@ -90,4 +90,24 @@ public class Board
 		}
 		return display;
 	}
+	
+	/**
+	 * Try to make a movement, throw ImpossibleMovementException if the player must be in position to Sumitomo, 
+	 * that is to say on the powerplay or if the number of balls that the player want to move is superior to 3
+	 * @param mov the mov lov lol
+	 */
+	public void doMovement (Movement mov) throws ImpossibleMovementException
+	{
+		if (mov.getWay().getDirection()==0)
+			{
+				// TODO 
+			}
+		else
+			{
+				for (int i = 0; i < mov.getMyBalls().length; i++)
+					{
+						// TODO
+					}
+			}
+	}
 }

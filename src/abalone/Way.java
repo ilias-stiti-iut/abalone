@@ -13,7 +13,7 @@ public class Way
 	private final int column;
 	
 	/**
-	 * the direction of the ball (0 for online, 1 for sideways
+	 * the direction of the ball (0 for online, 1 for sideways)
 	 */
 	private final int direction;
 	
@@ -28,5 +28,24 @@ public class Way
 		this.line=line;
 		this.column=column;
 		this.direction=direction;
+	}
+
+	/** 
+	 * Direction getter
+	 * @return object's direction
+	 */
+	public int getDirection()
+	{
+		return this.direction;
+	}
+	
+	public int getLine()
+	{
+		return this.line;
+	}
+	
+	public int getColumn()
+	{
+		return this.column;
 	}
 }
