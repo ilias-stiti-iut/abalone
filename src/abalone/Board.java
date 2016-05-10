@@ -4,7 +4,7 @@ package abalone;
  * Game board
  * @author stitii
  *
- */
+ */ 
 public class Board
 {
 	/**
@@ -94,20 +94,46 @@ public class Board
 	/**
 	 * Try to make a movement, throw ImpossibleMovementException if the player must be in position to Sumitomo, 
 	 * that is to say on the powerplay or if the number of balls that the player want to move is superior to 3
-	 * @param mov the mov lov lol
+	 * @param mov the mov ^^
 	 */
 	public void doMovement (Movement mov) throws ImpossibleMovementException
 	{
 		if (mov.getWay().getDirection()==0)
 			{
-				// TODO 
+			//if here: then it means the movement is sideways
+			//throw exception is there is already a ball where the player wants to move his balls
+				for (int i=0; i < mov.getMyBalls().length; i++)
+				{
+					if (this.board[mov.getMyBalls()[i].getLine()+mov.getWay().getLine()][mov.getMyBalls()[i].getColumn()+mov.getWay().getColumn()]!=Player.NULL_COLOR
+						&&mov.getMyBalls().length>3)					
+					{
+						throw new ImpossibleMovementException();
+					}
+				}
+				//do the movement
+				for (int i=0; i < mov.getMyBalls().length; i++)
+				{
+					this.board[mov.getMyBalls()[i].getLine()+mov.getWay().getLine()][mov.getMyBalls()[i].getColumn()+mov.getWay().getColumn()]=mov.getMyColor();
+					this.board[mov.getMyBalls()[i].getLine()][mov.getMyBalls()[i].getColumn()]=Player.NULL_COLOR;
+				}
 			}
 		else
 			{
-				for (int i = 0; i < mov.getMyBalls().length; i++)
-					{
-						// TODO
-					}
+			// TODO fix the problem of overflow of the board
+				//Determine enemy's ball number 
+				Position positemp = mov.getMyBalls()[mov.getMyBalls().length];
+				int numberofEnemyBall=0;
+				while (this.board[positemp.getLine()+mov.getWay().getLine()][positemp.getColumn()+mov.getWay().getColumn()]!=mov.getHisColor())
+				{
+					numberofEnemyBall++;
+					positemp.setLine(positemp.getLine()+mov.getWay().getLine());
+					positemp.setColumn(positemp.getColumn()+mov.getWay().getColumn());
+				}
+				//check if the movement is possible 
+				if (mov.getMyBalls().length<=numberofEnemyBall||mov.getMyBalls().length>Movement.DEFAULT_MAX_LENGTH)
+				{
+					throw new ImpossibleMovementException();
+				}
 			}
 	}
 }

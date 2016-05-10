@@ -1,6 +1,5 @@
 package abalone;
 
-import java.util.ArrayList;
 
 /**
  * Player's movement possible
@@ -14,6 +13,11 @@ import java.util.ArrayList;
 public class Movement
 {
 	/**
+	 * The maximum number of ball that a player can move
+	 */
+	public static final int DEFAULT_MAX_LENGTH = 3; 
+	
+	/**
 	 * table which stores the position of balls which the player want to move
 	 */
 	private final Position[] myBalls;
@@ -23,14 +27,24 @@ public class Movement
 	 */
 	private final Way way;
 	
+	/**
+	 * Player's color of balls  
+	 */
+	private final int myColor;
 	
+	/**
+	 * Enemy's color of balls 
+	 */
+	private final int hisColor;
 	/**
 	 * Create a movement (but the movement in not done yet)
 	 */
-	public Movement()
+	public Movement(int myColor, int hisColor)
 	{
 		this.myBalls=null;
 		this.way=null;
+		this.myColor=myColor;
+		this.hisColor=hisColor;
 	}
 	
 	/**
@@ -42,8 +56,30 @@ public class Movement
 		return this.way;
 	}
 	
+	/**
+	 * get the position of balls which the player want to move
+	 * @return the position of balls which the player want to move
+	 */
 	public Position[] getMyBalls()
 	{
 		return this.myBalls;
+	}
+	
+	/**
+	 * get player's color of balls 
+	 * @return player's color of balls
+	 */
+	public int getMyColor()
+	{
+		return this.myColor;
+	}
+	
+	/**
+	 * get enemy's color of balls 
+	 * @return Enemy's color of balls 
+	 */
+	public int getHisColor()
+	{
+		return this.hisColor;
 	}
 }

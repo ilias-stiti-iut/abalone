@@ -26,6 +26,11 @@ public class Player
 	public static int NULL_COLOR = -1;
 	
 	/**
+	 * 
+	 */
+	public static int DEAD_COLOR = -2;
+	
+	/**
 	 * default number of player's balls
 	 */
 	private static int DEFAULT_BALLS = 14;
@@ -38,7 +43,7 @@ public class Player
 	/**
 	 * number of player's balls 
 	 */
-	private int balls;
+	private int nbBalls;
 	
 	/**
 	 *  boolean which says if the player has no more balls
@@ -46,7 +51,7 @@ public class Player
 	private boolean nomoreBalls;
 	
 	/**
-	 * the color of balls of the player (black or white)
+	 * the color of balls of the player (1 black / 0 white)
 	 */
 	private int colorBalls;
 	
@@ -56,7 +61,7 @@ public class Player
 	 */
 	public Player(int color)
 	{
-		this.balls = DEFAULT_BALLS;
+		this.nbBalls = DEFAULT_BALLS;
 		this.nomoreBalls = DEFAULT_NOMOREBALLS;
 		this.colorBalls = color;
 	}
@@ -73,9 +78,9 @@ public class Player
 	/**
 	 * @return player's number of balls
 	 */
-	public int getBalls()
+	public int getnbBalls()
 	{
-		return this.balls;
+		return this.nbBalls;
 	}
 	
 	/**

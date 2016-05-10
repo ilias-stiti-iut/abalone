@@ -47,6 +47,24 @@ public class Position
 	{
 		return this.column;
 	}
+	
+	/**
+	 * Line setter
+	 * @param line Line to set
+	 */
+	public void setLine(int line)
+	{
+		this.line=line;
+	}
+	
+	/**
+	 * Column setter
+	 * @param column Column to set
+	 */
+	public void setColumn(int column)
+	{
+		this.column=column;
+	}
 
 }
 	

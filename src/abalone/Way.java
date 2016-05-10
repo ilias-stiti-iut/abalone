@@ -21,7 +21,7 @@ public class Way
 	 * create a way
 	 * @param line Line way 
 	 * @param column Column way
-	 * @param direction the direction of the ball (0 for online, 1 for sideways
+	 * @param direction the direction of the ball (0 for online, 1 for sideways)
 	 */
 	public Way(int line, int column,int direction)
 	{
@@ -33,6 +33,7 @@ public class Way
 	/** 
 	 * Direction getter
 	 * @return object's direction
+	 * (0 for online, 1 for sideways)
 	 */
 	public int getDirection()
 	{
