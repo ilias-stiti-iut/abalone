@@ -9,24 +9,25 @@ import abalone.*;
  * https://fr.wikipedia.org/wiki/Abalone_%28jeu%29
  *         
  *  
- *                 		                      		
- *               W W W W W       <- row 0
- *              W W W W W W 	 <- row 1
- *             X X W W W X X	 <- row 2
- *            X X X X X X X X    <- row 3
- *           X X X X X X X X X   <- row 4
- *  column 0/ X X X X X X X X    <- row 5
- *   column 1/ X X B B B X X     <- row 6
- *    column 2/ B B B B B B      <- row 7
- *     column 3/ B B B B B       <- row 8
- *              / / / / /           
- *      column 4 / / / /        
- *       column 5 / / /
- *        column 6 / /
- *         column 7 /
- *          column 8
- *          
- *  
+ *               N N N N N N  	   <- row 0                      		
+ *              N W W W W W N      <- row 1
+ *             N W W W W W W N	   <- row 2
+ *            N X X W W W X X N	   <- row 3
+ *           N X X X X X X X X N   <- row 4
+ *          N X X X X X X X X X N  <- row 5
+ * column 0/ N X X X X X X X X N   <- row 6
+ *  column 1/ N X X B B B X X N    <- row 7
+ *   column 2/ N B B B B B B N     <- row 8
+ *    column 3/ N B B B B B N      <- row 9
+ *             / N N N N N N       <- row 10
+ *            / / / / / / /          
+ *    column 4 / / / / / /       
+ *     column 5 / / / / /
+ *      column 6 / / / /
+ *       column 7 / / /
+          column 8 / /
+ *         column 9 /
+ *  	   column 10
  *  
  * @author stitii
  *

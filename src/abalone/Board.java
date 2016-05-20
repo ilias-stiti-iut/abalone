@@ -10,12 +10,12 @@ public class Board
 	/**
 	 * Default board's number of line 
 	 */
-	private static int NB_LINE=9;
+	private static int NB_LINE=11;
 	
 	/**
 	 * Default board's number of column 
 	 */
-	private static int NB_COLUMN=9;
+	private static int NB_COLUMN=11;
 	
 	/**
 	 * Game board [line] [column]
@@ -26,21 +26,23 @@ public class Board
 	 * Model of the position of balls
 	 * @formatter:off 
 	 */
-	private int[][] boardtemp =   {{0,0,0,0,0}, 
-								  {0,0,0,0,0,0},
-							    {-1,-1,0,0,0,-1,-1}, 
-							 {-1,-1,-1,-1,-1,-1,-1,-1},
-						   {-1,-1,-1,-1,-1,-1,-1,-1,-1}, 
-						      {-1,-1,-1,-1,-1,-1,-1,-1},
-						        {-1,-1,1,1,1,-1,-1}, 
-						       	   {1,1,1,1,1,1}, 
-						       	    {1,1,1,1,1}};
+	private int[][] boardtemp =  { {-2,-2,-2,-2,-2,-2},
+								   {-2,0,0,0,0,0,-2}, 
+								  {-2,0,0,0,0,0,0,-2},
+							    {-2,-1,-1,0,0,0,-1,-1,-2}, 
+							 {-2,-1,-1,-1,-1,-1,-1,-1,-1,-2},
+						   {-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2}, 
+						      {-2,-1,-1,-1,-1,-1,-1,-1,-1,-2},
+						        {-2,-1,-1,1,1,1,-1,-1,-2}, 
+						       	   {-2,1,1,1,1,1,1,-2}, 
+						       	    {-2,1,1,1,1,1,-2},
+						       	   {-2,-2,-2,-2,-2,-2}};
 	
 	/**
 	 * Used for displayBoard()
 	 */
-	private String[] spaceBoard = {"               ","              ","             ","            ","           ",
-							       "            ","             ","              ","               "};
+	private String[] spaceBoard = {"               ","              ","             ","            ","           ","          ",
+							       "           ","            ","             ","              ","               "};
 	
 	/**
 	 * Board's constructor 
@@ -48,7 +50,7 @@ public class Board
 	 */
 	public Board()
 	{
-		this.board[NB_LINE][NB_COLUMN] = 0;
+		this.board = new int[NB_LINE][NB_COLUMN];
 			
 		for (int i = 0; i < this.boardtemp.length; i++)
 		{
@@ -69,6 +71,7 @@ public class Board
 	{
 		if (this.board[i][j]==-1) return "X";
 		else if (this.board[i][j]==0) return "W";
+		else if (this.board[i][j]==-2) return "N";
 		else return "B";
 	}
 	
@@ -128,11 +131,32 @@ public class Board
 					numberofEnemyBall++;
 					positemp.setLine(positemp.getLine()+mov.getWay().getLine());
 					positemp.setColumn(positemp.getColumn()+mov.getWay().getColumn());
+					if (this.board[positemp.getLine()+mov.getWay().getLine()][positemp.getColumn()+mov.getWay().getColumn()]!=mov.getMyColor())
+							{
+								throw new ImpossibleMovementException();
+							}
 				}
+				positemp.setLine(positemp.getLine()-mov.getWay().getLine());
+				positemp.setColumn(positemp.getColumn()-mov.getWay().getColumn());
 				//check if the movement is possible 
 				if (mov.getMyBalls().length<=numberofEnemyBall||mov.getMyBalls().length>Movement.DEFAULT_MAX_LENGTH)
 				{
 					throw new ImpossibleMovementException();
+				}
+				while (this.board[positemp.getLine()-mov.getWay().getLine()][positemp.getColumn()-mov.getWay().getColumn()]!=Player.DEAD_COLOR)
+				{
+					if (this.board[positemp.getLine()+mov.getWay().getLine()][positemp.getColumn()+mov.getWay().getColumn()]==Player.DEAD_COLOR)
+					{
+						this.board[positemp.getLine()][positemp.getColumn()]=Player.NULL_COLOR;
+					}
+					else
+					{
+						this.board[positemp.getLine()+mov.getWay().getLine()][positemp.getColumn()+mov.getWay().getColumn()]=this.board[positemp.getLine()][positemp.getColumn()];
+						this.board[positemp.getLine()][positemp.getColumn()]=Player.NULL_COLOR;
+						positemp.setLine(positemp.getLine()-mov.getWay().getLine());
+						positemp.setColumn(positemp.getColumn()-mov.getWay().getColumn());
+					}
+					
 				}
 			}
 	}

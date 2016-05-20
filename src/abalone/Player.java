@@ -97,6 +97,8 @@ public class Player
 	 */
 	public void turn()
 	{
-		
+		System.out.println("Choisissez le déplacement à effectuer");
+		if (this.colorBalls==0){Movement mov = new Movement(0,1);}
+		else {if (this.colorBalls==0){Movement mov = new Movement(1,0);}}
 	}
 }
