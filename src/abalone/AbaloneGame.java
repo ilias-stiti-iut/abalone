@@ -1,7 +1,5 @@
 package abalone;
 
-import abalone.*;
-
 
 /**
  * @formatter:off 
@@ -60,22 +58,21 @@ public class AbaloneGame{
 	
 	/**
 	 * @formatter:on
-	 * Creates a new Abalone game, ready to be played. The first player who
-	 * Begin is the one with black balls All balls are positioned on a table which has an hexagonal shape 
-	 * An Abalone game is not end by default
+	 * Creates a new Abalone game, ready to be played. The first player who begin is the one with black balls 
+	 * All balls are positioned on a table which has an hexagonal shape 
+	 * An Abalone game is not end by default 
 	 */
 	public AbaloneGame()
 	{
 		this.isGameFinished = false;
-		this.player1 = new Player(Player.BLACK_COLOR);
-		this.player2 = new Player(Player.WHITE_COLOR);
+		this.player1 = new Player(Player.BLACK_COLOR,1);
+		this.player2 = new Player(Player.WHITE_COLOR,2);
 		this.board = new Board();	
-		
 	}
 
 	// TODO detail algorithm (ask for advice)
 	/**
-	 * Plays the game (algorithm?)
+	 * Plays the game 
 	 * While the game isn't finished, play the game
 	 * Each player plays his turn 
 	 * During his turn, he has to chose a move 
@@ -84,13 +81,26 @@ public class AbaloneGame{
 	public void play()
 	{
 		System.out.println(this.board.toString());
-		while (this.isGameFinished)
+		System.out.println(this.board.toRealString());
+		while (!this.isGameFinished)
 		{
-			this.player1.turn();
+			this.player1.turn(this.board,this);
 			this.isGameFinished=this.player2.getNomoreBalls();
-			this.player2.turn();
+			System.out.println(this.board.toString());
+			System.out.println(this.board.toRealString());
+			this.player2.turn(this.board,this);
 			this.isGameFinished=this.player1.getNomoreBalls();
 		}
+	}
+	
+	/**
+	 * Remove 1 ball of a player
+	 * @param number the player's number
+	 */
+	public void removeball(int number)
+	{
+		if (number==1) this.player1.setNbBalls(-1);
+		else this.player2.setNbBalls(-1);
 	}
 	
 }

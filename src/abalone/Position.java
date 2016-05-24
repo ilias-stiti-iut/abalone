@@ -1,9 +1,7 @@
 package abalone;
 
-import abalone.*;
-
 /**
- * Position
+ * Position of a ball
  * @author stitii
  *
  */

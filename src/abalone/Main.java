@@ -1,7 +1,5 @@
 package abalone;
 
-import abalone.*;
-
 // TODO update README.md (what/sho)
 /**
  * @author stitii

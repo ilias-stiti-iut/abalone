@@ -25,7 +25,7 @@ public class Movement
 	/**
 	 * the way of the balls
 	 */
-	private final Way way;
+	private Way way;
 	
 	/**
 	 * Player's color of balls  
@@ -36,15 +36,25 @@ public class Movement
 	 * Enemy's color of balls 
 	 */
 	private final int hisColor;
+	
 	/**
 	 * Create a movement (but the movement in not done yet)
+	 * @param myColor The ally'color of ball
 	 */
-	public Movement(int myColor, int hisColor)
+	public Movement(int myColor)
 	{
-		this.myBalls=null;
+		this.myBalls= new Position[Player.DEFAULT_BALLS];
 		this.way=null;
-		this.myColor=myColor;
-		this.hisColor=hisColor;
+		if (myColor==Player.BLACK_COLOR)
+		{
+			this.myColor=Player.BLACK_COLOR;
+			this.hisColor=Player.WHITE_COLOR;
+		}
+		else
+		{
+			this.hisColor=Player.BLACK_COLOR;
+			this.myColor=Player.WHITE_COLOR;
+		}
 	}
 	
 	/**
@@ -57,12 +67,25 @@ public class Movement
 	}
 	
 	/**
-	 * get the position of balls which the player want to move
-	 * @return the position of balls which the player want to move
+	 * get a table of position of balls which the player want to move
+	 * @return a table of of balls which the player want to move
 	 */
 	public Position[] getMyBalls()
 	{
 		return this.myBalls;
+	}
+	
+	/**
+	 * Get the real length of Movement.myBalls
+	 * @param position
+	 * @return the real length of Movement.myBalls	 
+	 */
+	public int getRealLength(Position[] position)
+	{
+		int i=0;
+		while (position[i].getLine()!=0)
+			i++;
+		return i;
 	}
 	
 	/**
@@ -81,5 +104,28 @@ public class Movement
 	public int getHisColor()
 	{
 		return this.hisColor;
+	}
+	
+	/**
+	 * Add a position to Movement.myBalls
+	 * @param line the line to add
+	 * @param column the column to add
+	 * @param i index of the table
+	 */
+	public void setPosition(int line, int column,int i)
+	{
+		this.myBalls[i]= new Position(line,column);
+		this.myBalls[i+1]= new Position(0,0);
+	}
+	
+	/**
+	 * Way setter
+	 * @param line the line to set
+	 * @param column the column to set
+	 * @param direction the direction to set
+	 */
+	public void setWay(int line, int column,int direction)
+	{
+		this.way=new Way(line,column,direction);
 	}
 }
